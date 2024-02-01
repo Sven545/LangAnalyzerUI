@@ -1,0 +1,31 @@
+﻿<Window x:Class="LangAnalyzerUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LangAnalyzerUI"
+        xmlns:TreeContainer="clr-namespace:TreeContainer;assembly=TreeContainer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Построить AST" HorizontalAlignment="Center" Margin="0,353,0,0" VerticalAlignment="Top" Grid.Column="1"  Click="Button_Click"/>
+        <Button Grid.Column="1" Content="Очистить" HorizontalAlignment="Center" Margin="0,378,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <TextBox  Name="textBox"
+                  Grid.ColumnSpan="2"
+                  HorizontalAlignment="Left"
+                  Margin="10,10,0,0" TextWrapping="Wrap"
+                  VerticalAlignment="Top"
+                  Width="375" Height="306"
+                  Text="IF A > B AND B == 5  THEN A := 3 + 2; A := B + 2; ELSE IF A >= B OR B &lt;> 5 OR C == 1 THEN A := C + D;  END_IF"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="2" Margin="409,10,10,118">
+            <TreeContainer:TreeContainer Width="Auto" Height="Auto" x:Name="treeContainer" Margin="8,8,8,8" VerticalBuffer="20" />
+        </ScrollViewer>
+
+
+    </Grid>
+</Window>
